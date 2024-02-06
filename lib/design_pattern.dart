@@ -1,3 +1,1 @@
-int calculate() {
-  return 6 * 7;
-}
+export './creational_6_types/singleton/lazy_singleton_with_factory.dart';
