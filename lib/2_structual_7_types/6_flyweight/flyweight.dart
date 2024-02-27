@@ -12,7 +12,7 @@ class Circle implements Shape {
 
   @override
   void draw() {
-    print('Draw color ${_color} circle');
+    print('Draw color $_color circle');
   }
 }
 

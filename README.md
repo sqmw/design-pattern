@@ -1,5 +1,5 @@
-A sample command-line application with an entrypoint in `bin/`, library code
-in `lib/`, and example unit test in `test/`.
+///-----------------23个设计模式是7个原则的具体形式，7原则是23个模式的凝练------------------///
+///----------------- target: 高内聚、低耦合 ------------------///
 
 # 1. 软件设计模式
 ---
@@ -35,6 +35,110 @@ in `lib/`, and example unit test in `test/`.
             - 处理请求的方法
         - 多个继承approver的处理class
         - 被处理的 class
+
+#### 2. command(命令模式)
+
+- explanation
+    - 将命令、命令操作的对象和命令的执行者分离
+    - 组成(四部分)
+        - 接口 command (仅仅有execute这个method)
+        - 具体的 command
+        - 拥有 command 的实体类
+        - command 的调用者
+
+#### 3. iterator(迭代器模式)
+
+- explanation
+    - iterator 提供了顺序访问聚合对象中的各个元素而不关心数据对象内部的具体形式方式
+    - Java 以及 Python都有
+        - Python 中的 generator 就是迭代器，可以使用 next() 方法让指针下移
+    - 组成
+        - interface Iterator
+            - 包含方法 hasNext() 和 next()
+        - concrete iterator(具体的迭代器)
+        - interface Aggregate(通过传入的元素集合构建一个iterator)
+            - 通常包括一个或者多个方法获取迭代器
+        - Concrete Aggregate
+
+#### 4. mediator(中介者模式)
+
+- explanation
+    - 在没有 mediator 的时候，各个对象之间的通信杂乱无章，中介者用来协调各个对象之间的通信
+    - 中介者负责协调和管理各个对象之间的通信，而每个对象都只需要与中介者进行交互，而不直接与其他对象通信。这种方式使得系统更容易维护和扩展，因为对象之间的关系由中介者来管理，而不是直接耦合在一起
+    - 组成
+        - interface mediator(可以将信息发给指定的对象[同事])
+            - sendMsg()
+        - concrete mediator
+            - 持有注册了的所有同事的引用
+        - interface colleague(也就是同事[对象])
+            - sendMsg()
+            - receiveMsg()
+        - concrete colleague
+            - 每个同事都需要持有对应的mediate的引用，才能发送消息
+
+#### 5. memento(备忘录模式)
+
+- explanation
+    - 是一种行为性设计模式，在不破坏封装的前提下，捕获和外部化一个对象的内部状态，以方便进行 `redo`
+      和 `undo`
+    - 平时的撤销、还原就是实际的体现
+    - 组成
+        - memento 用来存储某个时刻的状态
+        - caretaker 和 memento 属于 组合关系，可以通过k获取某个时刻的状态
+            - List<Memento> mementoList
+        - originator 行为者，memento 描述的状态就是 originator 的状态
+
+#### 6. observer(观察者模式)
+
+- explanation
+    - 行为性设计模式，当被观察者，发生某个被观察的行为的时候，就会通知所有的观察者，观察者就会对此作出反应
+    - 组成
+        - observer(观察者)
+        - subject(被观察者)
+
+#### 7. visitor(参观者模式)
+
+- explanation
+    - 属于行为型设计模式
+    - 用于在不改变已有类结构的前提下，定义作用于这些类对象结构中的新操作。
+      它将这些新操作封装到一个称为"visitor"的类中
+    - 组成
+        - interface Visitor
+            - visitVisited(Visited visited)
+        - interface Visited
+            - acceptVisit(Visitor visitor)
+        - ConcreteVisitor
+        - ConcreteVisited
+
+#### 8. strategy(策略模式)
+
+- explanation
+    - 属于行为型设计模式
+    - 封装了一系列解决同一问题的代码
+    - 将算法的内部实现以及算法的选择封装起来，不用用户实现、选择
+    - 组成
+        - interface SortStrategy
+        - BubbleSort
+        - QuickSort
+        - SortContext
+            - 拥有各种各样的sort方法
+
+#### 9. state(状态模式)
+
+- explanation
+    - 属于行为型设计模式
+    - 将实体的具体行为和实体分开，降低耦合度
+        - 组成
+        - interface state
+        - concrete StateA
+        - concrete StateB
+        - Entity
+
+#### 10. template method(模板方法模式)
+
+- explanation
+    - 属于行为型设计模式
+    - 使用接口定义了算法的骨架，将算法的具体实现延迟到子类来实现
 
 ## 结构(7)
 

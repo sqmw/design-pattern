@@ -6,7 +6,7 @@ abstract class Component {
 class ConcreteComponent implements Component {
   @override
   void operation() {
-    print('ConcreteComponent Operation');
+    print('Init ConcreteComponent Operation');
   }
 }
 
@@ -29,7 +29,7 @@ class ConcreteDecoratorA extends Decorator {
   @override
   void operation() {
     super.operation();
-    print('ConcreteDecoratorA additive operationA !!!');
+    print('Decorated ConcreteDecoratorA additive operationA !!!');
   }
 }
 
