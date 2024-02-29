@@ -1,11 +1,11 @@
-// 中介者接口
+/// 接口：中介者
 import 'dart:io';
 
 abstract class Mediator {
   void sendMessage(Colleague target, String message);
 }
 
-// 同事接口
+/// 接口：同事
 abstract class Colleague {
   Mediator mediator;
 
@@ -26,6 +26,7 @@ class ConcreteMediator implements Mediator {
 
   @override
   void sendMessage(Colleague target, String message) {
+    /// 判断是否在中继者这里注册过
     if (colleagues.contains(target)) {
       target.receive(message);
     } else {

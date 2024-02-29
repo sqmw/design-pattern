@@ -1,4 +1,5 @@
 /// command 的接口
+/// 把 entity 的具体操作封装在了 command 的 execute 里面
 abstract class Command {
   execute();
 }
