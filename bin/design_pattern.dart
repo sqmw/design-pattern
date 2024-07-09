@@ -1,16 +1,14 @@
-import 'dart:isolate';
-
-int slowFib(int n) => n <= 1 ? 1 : slowFib(n - 1) + slowFib(n - 2);
-
-// Compute without blocking current isolate.
-Future<void> fib40() async {
-  var result = await Isolate.run(() => slowFib(40));
-  print('Fib(40) = $result');
+int slowFib(int n) {
+  if (n <= 1) {
+    return n;
+  } else {
+    return slowFib(n - 2) + slowFib(n - 1);
+  }
 }
 
-Future<void> main() async {
-  Stopwatch stopwatch = Stopwatch()..start();
-  await fib40();
-  stopwatch.stop();
-  print(stopwatch.elapsedMilliseconds);
+void main() {
+  var timeWatch = Stopwatch();
+  timeWatch.start();
+  print(slowFib(45));
+  print(timeWatch.elapsedMilliseconds);
 }

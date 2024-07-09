@@ -1,8 +1,9 @@
-/// 这个接口的 源Component的实现 和 Decorator的实现 是核心
+/// 这个 interface 的源 Component 的实现 和 Decorator的实现 是核心
 abstract class Component {
   void operation();
 }
 
+/// 这个是被装饰者
 class ConcreteComponent implements Component {
   @override
   void operation() {

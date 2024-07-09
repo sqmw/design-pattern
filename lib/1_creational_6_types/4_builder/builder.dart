@@ -70,7 +70,7 @@ class ATypeComputerBuilder implements ComputerBuilder {
   }
 }
 
-// 属于指导者，这里有点像 simple_factory
+/// 属于指导者，这里有点像 simple_factory
 class ComputerDirector {
   Computer construct(ComputerBuilder computerBuilder) {
     computerBuilder.buildCpu();

@@ -1,4 +1,4 @@
-/// state
+/// state，一般情况下，我们每一个状态的转换对应着行为，但是 state 模式将状态的转变直接封装在 state class 里面
 abstract class LightState {
   void lightOn();
 

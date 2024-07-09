@@ -1,3 +1,5 @@
+/// 在一般的理解中，visitor 是主动去看，但是在实际的代码实现中，则是 visited 主动
+/// 暴露自己给 visitor(下面是通过accept方法)
 abstract class Visited {
   void accept(Visitor visitor);
 }
@@ -41,6 +43,7 @@ void main() {
   Visited lion = Lion();
   Visited monkey = Monkey();
 
+  /// 将自己暴露出去
   lion.accept(visitor);
   monkey.accept(visitor);
 }

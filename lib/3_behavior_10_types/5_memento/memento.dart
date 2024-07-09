@@ -1,6 +1,6 @@
 import 'dart:io';
 
-/// 备忘录，用来存储 状态拥有着过去某个时刻的状态
+/// 备忘录，用来存储 状态拥有着过去某个时刻的状态，在实际情况下，state 复杂很多
 class Memento {
   late Object _state;
 

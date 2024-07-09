@@ -1,4 +1,4 @@
-/// command 的接口，每一个 command只有一个方法
+/// command 的接口，每一个 command只有一个方法，command 模式用来将 command 和所有者分离
 abstract class Command {
   execute();
 }
